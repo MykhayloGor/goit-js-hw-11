@@ -12,14 +12,32 @@ function renderGallery(images) {
   const markup = images
     .map(
       img => `
-      <div class="image-card">
-        <a href="${img.largeImageURL}">
-          <img src="${img.webformatURL}" alt="${img.tags}" />
-        </a>
-        <p>Likes: ${img.likes} | Views: ${img.views}</p>
-        <p>Comments: ${img.comments} | Downloads: ${img.downloads}</p>
-      </div>
-    `
+        <li class="gallery-item">  <div class="image-card">  <a class="gallery-link" href="${img.largeImageURL}">
+              <img class="gallery-image" src="${img.webformatURL}" alt="${img.tags}" />
+            </a>
+            <div class="gallery-meta">
+              <ul class="gallery-stats">
+                <li class="stats-item">
+                  <span class="stats-label">Likes</span>
+                  <span class="stats-value">${img.likes}</span>
+                </li>
+                <li class="stats-item">
+                  <span class="stats-label">Views</span>
+                  <span class="stats-value">${img.views}</span>
+                </li>
+                <li class="stats-item">
+                  <span class="stats-label">Comments</span>
+                  <span class="stats-value">${img.comments}</span>
+                </li>
+                <li class="stats-item">
+                  <span class="stats-label">Downloads</span>
+                  <span class="stats-value">${img.downloads}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      `
     )
     .join('');
 
